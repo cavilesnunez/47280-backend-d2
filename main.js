@@ -21,7 +21,6 @@ const addProduct = async (product) => {
 
 
 
-
 const getProduct = async () => {
     const products = JSON.parse(await fs.readFile('./productos.txt', 'utf-8'))
     console.log(products)
