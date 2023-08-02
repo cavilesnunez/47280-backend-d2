@@ -2,7 +2,7 @@
 
     const FILE_PATH = './productos.txt';
 
-    const readProductsFromFile = async () => {
+    const readProducts = async () => {
     try {
         const content = await fs.readFile(FILE_PATH, 'utf-8');
         return JSON.parse(content);
@@ -12,26 +12,26 @@
     }
     };
 
-    const saveProductsToFile = async (products) => {
+    const saveProducts = async (products) => {
     await fs.writeFile(FILE_PATH, JSON.stringify(products));
     };
 
     const addProduct = async (product) => {
-    const products = await readProductsFromFile();
+    const products = await readProducts();
     if (products.find((existingProduct) => existingProduct.id === product.id)) {
         return "Producto ya agregado";
     }
     products.push(product);
-    await saveProductsToFile(products);
+    await saveProducts(products);
     };
 
     const getProducts = async () => {
-    const products = await readProductsFromFile();
+    const products = await readProducts();
     console.log(products);
     };
 
     const getProductById = async (id) => {
-    const products = await readProductsFromFile();
+    const products = await readProducts();
     const product = products.find((product) => product.id === id);
     if (product) {
         console.log(product);
@@ -41,21 +41,21 @@
     };
 
     const updateProduct = async (id, updatedAttributes) => {
-    const products = await readProductsFromFile();
+    const products = await readProducts();
     const productIndex = products.findIndex((product) => product.id === id);
     if (productIndex !== -1) {
         // Actualizar atributos del producto
         Object.assign(products[productIndex], updatedAttributes);
-        await saveProductsToFile(products);
+        await saveProducts(products);
     } else {
         console.log("Producto no encontrado");
     }
     };
 
     const deleteProduct = async (id) => {
-    const products = await readProductsFromFile();
+    const products = await readProducts();
     const filteredProducts = products.filter((product) => product.id !== id);
-    await saveProductsToFile(filteredProducts);
+    await saveProducts(filteredProducts);
     };
 
     const product = { nombre: "Papa", id: 3 };
