@@ -1,1 +1,11 @@
-[{"nombre":"Arroz","id":2},{"nombre":"Papa","id":3}]
+[
+  {
+    "title": "Teclado1",
+    "description": "Descripcion de tecldo",
+    "price": 120,
+    "thumbnail": "imgen.png",
+    "code": "TEC01",
+    "stock": 150,
+    "id": 1
+  }
+]
