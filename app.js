@@ -4,7 +4,7 @@
     const filePath = 'productos.txt';
     const productManager = new ProductManager(filePath);
 
-    // Obtener el primer argumento proporcionado desde la consola (omitimos "node" y "app.js")
+    
     const args = process.argv.slice(2);
     const command = args[0];
 
@@ -52,9 +52,12 @@
     } else {
         console.log('Producto no encontrado');
     }
+    
     }
 
     // Manejo de comandos y ejecución de funciones
+    // Opciones: node app.js [show | add | get | update | delete],
+    // solo que se deben de agregar los args para que ejecute la funcion correctamente.
     switch (command) {
     case 'show':
         showProducts();
